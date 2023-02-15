@@ -1,0 +1,26 @@
+# importing required libraries
+import cv2
+import time
+
+# opening video capture stream
+cap = cv2.VideoCapture(1)
+
+# processing frames in input stream
+counter = 0
+start = time.time()
+while True :
+    success, img = cap.read()
+
+    # adding a delay for simulating time taken for processing a frame
+    delay = 0.03
+    # delay value in seconds. so, delay=1 is equivalent to 1 second
+    time.sleep(delay)
+    counter += 1
+
+    cv2.imshow('frame', img)
+    key = cv2.waitKey(1)
+
+
+# releasing input stream , closing all windows
+cap.release()
+cv2.destroyAllWindows()
